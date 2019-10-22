@@ -32,3 +32,19 @@ const min = numbers => {
 
   return currentSmallest;
 };
+
+
+// Write a function called average that takes an array of numbers as its input and returns the average generated from the array of numbers.
+
+// Recall that to compute the average of a set of numbers, you add together all of the numbers, and then divide the resulting value by the number of items in the array.
+
+function average(numbers) {
+
+  let sum = 0;
+
+  numbers.forEach(number => sum += number);
+
+  return sum / numbers.length;
+}
+
+console.log(average([-12, 6, 9]));
