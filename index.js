@@ -87,7 +87,7 @@ const filteredNames = filter(myNames, function(name) {
   return name[0] === "R";
 });
 
-console.log(filteredNames); // => ['Rich', 'Ray']
+// console.log(filteredNames); // => ['Rich', 'Ray']
 // <---- DO NOT EDIT BETWEEN THESE LINES
 
 function hazardWarningCreator(typeOfWarning) {
@@ -108,11 +108,45 @@ const rocksWarning = hazardWarningCreator("Rocks on the Road");
 const iceWarning = hazardWarningCreator("ice on the Road");
 const treesWarning = hazardWarningCreator("trees on the Road");
 
-rocksWarning("Main St and Pacific Ave");
-rocksWarning("Centinela Ave and Olympic Blvd");
+// rocksWarning("Main St and Pacific Ave");
+// rocksWarning("Centinela Ave and Olympic Blvd");
 
-iceWarning("Main St and Pacific Ave");
-iceWarning("Centinela Ave and Olympic Blvd");
+// iceWarning("Main St and Pacific Ave");
+// iceWarning("Centinela Ave and Olympic Blvd");
 
-treesWarning("Main St and Pacific Ave");
-treesWarning("Centinela Ave and Olympic Blvd");
+// treesWarning("Main St and Pacific Ave");
+// treesWarning("Centinela Ave and Olympic Blvd");
+
+
+// A turtle's movements can be represented by an array which looks like this: [3, 4]. The first item in the array represents the number of steps the turtle takes forwards. 
+//The second number in the array is the number of steps the turtle takes to the left.
+
+// Here is an array of different movements made by a turtle: [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]].
+
+// Use the filter method to remove any items where the turtle moves backwards or to the right (i.e. where either the first or second number in an item is negative).
+
+// Use the map method to create a new array of integers only, representing how many total steps the turtle makes for each movement (i.e. the first and second number added together).
+
+// Use the forEach method to log out how many steps the turtle took in each movement using the format:
+
+//EXAMPLE OUTPUT
+//Movement #1: 3 steps
+//Movement #2: 1 step
+
+const turtleMoves = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
+
+const filteredMoves = turtleMoves.filter(isLegalMove).map(totalSteps).forEach(logNumSteps); 
+
+function isLegalMove(move) {
+  return (move[0] >= 0) && (move[1] >= 0);
+}
+
+function totalSteps(move) {
+  return move[0] + move[1];
+}
+
+function logNumSteps(move, index) {
+  return console.log(`Movement #${index + 1}: ${move} steps`);
+}
+
+console.table(filteredMoves);
