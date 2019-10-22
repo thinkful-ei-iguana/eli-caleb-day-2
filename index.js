@@ -117,8 +117,7 @@ const treesWarning = hazardWarningCreator("trees on the Road");
 // treesWarning("Main St and Pacific Ave");
 // treesWarning("Centinela Ave and Olympic Blvd");
 
-
-// A turtle's movements can be represented by an array which looks like this: [3, 4]. The first item in the array represents the number of steps the turtle takes forwards. 
+// A turtle's movements can be represented by an array which looks like this: [3, 4]. The first item in the array represents the number of steps the turtle takes forwards.
 //The second number in the array is the number of steps the turtle takes to the left.
 
 // Here is an array of different movements made by a turtle: [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]].
@@ -135,10 +134,13 @@ const treesWarning = hazardWarningCreator("trees on the Road");
 
 const turtleMoves = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
 
-const filteredMoves = turtleMoves.filter(isLegalMove).map(totalSteps).forEach(logNumSteps); 
+const filteredMoves = turtleMoves
+  .filter(isLegalMove)
+  .map(totalSteps)
+  .forEach(logNumSteps);
 
 function isLegalMove(move) {
-  return (move[0] >= 0) && (move[1] >= 0);
+  return move[0] >= 0 && move[1] >= 0;
 }
 
 function totalSteps(move) {
@@ -150,3 +152,18 @@ function logNumSteps(move, index) {
 }
 
 console.table(filteredMoves);
+
+// Use the reduce function to iterate through an array of words and construct a decoded sentence (string) based on the following criteria:
+// If the array element is exactly three characters in length, add a space character to your accumulator
+// Otherwise, capitalize the LAST character of the array element and add it to your accumulator
+// Your input is 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'
+// You will need to convert the input to an array before using .reduce()
+// HINT: When you invoke reduce() you will need to set the initialValue parameter to an empty string so that future iterations can concatenate more string characters
+
+const decodedString = "noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest"
+  .split(/\b\s/)
+  .reduce(
+    (word, i) =>
+      i.length == 3 ? word + " " : word + i[i.length - 1].toUpperCase(),
+    ""
+  );
