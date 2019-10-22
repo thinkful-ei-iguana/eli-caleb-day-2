@@ -33,18 +33,37 @@ const min = numbers => {
   return currentSmallest;
 };
 
-
 // Write a function called average that takes an array of numbers as its input and returns the average generated from the array of numbers.
 
 // Recall that to compute the average of a set of numbers, you add together all of the numbers, and then divide the resulting value by the number of items in the array.
 
 function average(numbers) {
-
   let sum = 0;
 
-  numbers.forEach(number => sum += number);
+  numbers.forEach(number => (sum += number));
 
   return sum / numbers.length;
 }
 
 console.log(average([-12, 6, 9]));
+
+// Create a function called repeat which takes two arguments:
+// The first argument should be an arbitrary function, fn
+// The second argument should be a number, n
+// repeat should loop n times
+// Each iteration of the loop, it should call fn
+// Create two more functions called hello and goodbye:
+// hello should log the string 'Hello world'
+// goodbye should log the string 'Goodbye world'
+// Use your repeat function to call the hello function five times: repeat(hello, 5)
+// Use your repeat function to call the goodbye function five times: repeat(goodbye, 5)
+
+const repeat = (fn, n) => {
+  for (let i = 0; i < n; i++) fn.call();
+};
+
+const hello = () => console.log("hello world");
+const goodbye = () => console.log("goodbye world");
+
+repeat(hello, 5);
+repeat(goodbye, 5);
